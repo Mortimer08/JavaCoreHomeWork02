@@ -11,8 +11,8 @@ public class Main {
     private static int fieldYSize;
     private static int winCount;
     private static char[][] field;
-    private static Scanner sc = new Scanner(System.in);
-    private static Random rnd = new Random();
+    private static final Scanner sc = new Scanner(System.in);
+    private static final Random rnd = new Random();
 
     public static void main(String[] args) {
         fieldInit();
@@ -90,7 +90,6 @@ public class Main {
     private static void player1Move() {
         String playerInputX;
         String playerInputY;
-        boolean repeatInput = true;
         int x = -1;
         int y = -1;
         do {
@@ -180,9 +179,8 @@ public class Main {
         for (int x = 0; x < fieldXSize; x++) {
             for (int y = 0; y < fieldYSize; y++) {
                 if (field[x][y] == sign) {
-                    int signCount = 1;
-                    int dx;
-                    int dy = 0;
+                    int signCount;
+//                    int dy;
                     /*
                      * Verifying horizontal
                      */
@@ -274,7 +272,7 @@ public class Main {
      */
     private static int countAscendingDiagonal(int x, int y, char sign) {
         int dx = 1;
-        int dy = 0;
+        int dy;
         int signCount = 0;
         for (dy = 1; dy < winCount; dy++) {
 
